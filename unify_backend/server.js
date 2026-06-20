@@ -8,6 +8,7 @@ const registerModel = require("./models/register.model");
 const connecttodb = require("./config/registerdb");
 connecttodb();
 const app = express();
+app.disable("x-powered-by");
 app.use(cors({
   origin:process.env.ALLOWED_ORIGINs,
   methods:['GET','POST','PUT','DELETE'],
@@ -18,4 +19,3 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/api', indexroutes);
 app.listen(3000);
-
